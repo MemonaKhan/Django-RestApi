@@ -5,3 +5,7 @@ from .serializers import StudentSerializer
 from .models import Student
 
 # Create your views here.
+
+class StudentViewSet(viewsets.ModelViewSet):             # ModelViewSet is a special view that Django Rest Framework provides
+    queryset = Student.objects.all().order_by('name')
+    serializer_class = StudentSerializer
